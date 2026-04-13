@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Self-Hosted Infrastructure — Louis Kempson-Seaton</title>
+  <meta name="description" content="Raspberry Pi 5 running 10+ Docker services, secured behind Tailscale and Cloudflare Tunnels, with autonomous management via Claude Code and nightly AI security audits.">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo">louis<span class="accent">::</span>kempson-seaton</a>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../about.html">About</a></li>
+        <li><a href="../projects.html">Projects</a></li>
+        <li><a href="../cv.html">CV</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="page-content">
+    <div class="container">
+
+      <a href="../projects.html" class="back-link">← Projects</a>
+
+      <section class="hero">
+        <span class="hero-label">Docker · Linux · Claude Code</span>
+        <h1>Self-Hosted Infrastructure</h1>
+        <p>
+          A Raspberry Pi 5 running 10+ containerised services, secured behind Tailscale
+          VPN and Cloudflare Tunnels, with autonomous management via Claude Code and
+          nightly AI-powered security audits.
+        </p>
+      </section>
+
+      <hr class="divider">
+
+      <section class="section fade-in">
+        <h2>Architecture</h2>
+
+        <div class="pipeline">
+
+          <div class="pipeline-stage">
+            <span class="pipeline-stage-num">01</span>
+            <div class="pipeline-stage-body">
+              <div class="pipeline-stage-title">Services</div>
+
+              <div class="pipeline-branch">
+                <span class="pipeline-branch-label">Docker Containers</span>
+                <p>Home Assistant (smart home hub), n8n (workflow automation), Pi-hole
+                (DNS ad blocking), Jellyfin (media server), Nextcloud (file storage),
+                Syncthing (file sync), Glances (system monitoring), and others.</p>
+              </div>
+
+              <div class="pipeline-branch">
+                <span class="pipeline-branch-label">Systemd Services</span>
+                <p>nginx (reverse proxy with SSL for all subdomains), Tailscale VPN,
+                Cloudflare Tunnel, Raspotify and Shairport-sync (Spotify Connect and
+                AirPlay).</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="pipeline-stage">
+            <span class="pipeline-stage-num">02</span>
+            <div class="pipeline-stage-body">
+              <div class="pipeline-stage-title">Network and Security</div>
+              <ul>
+                <li>SSH restricted to Tailscale IP and localhost only. Key-only authentication, single allowed user.</li>
+                <li>Custom iptables rules: ts-input chain whitelists 5 authorised Tailscale peers, drops all other Tailscale traffic, blocks spoofed CGNAT addresses.</li>
+                <li>Wildcard SSL certificates for *.kempsonseaton.com via Let's Encrypt with automated renewal.</li>
+                <li>Tailscale mesh VPN for remote access. Tailscale Funnel disabled — nothing exposed via Tailscale serve.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="pipeline-stage">
+            <span class="pipeline-stage-num">03</span>
+            <div class="pipeline-stage-body">
+              <div class="pipeline-stage-title">Autonomous Management via Claude Code</div>
+              <p>CLAUDE.md defines operating rules: read memory on session start, run a drift
+              check (Docker status, failed services, disk usage), never delete or restart
+              without explicit confirmation.</p>
+              <p>An Obsidian vault stores structured state across three files: memory.md
+              (hardware, OS, services, network, known issues, session log), network.md
+              (interfaces, port map, DNS, peers, firewall rules, VPN routing), and
+              projects.md (active, planned, and completed projects). Vault synced every
+              10 minutes via cron.</p>
+            </div>
+          </div>
+
+          <div class="pipeline-stage">
+            <span class="pipeline-stage-num">04</span>
+            <div class="pipeline-stage-body">
+              <div class="pipeline-stage-title">Nightly Security Audit</div>
+              <p>A cron job at 3am runs Claude Opus for a comprehensive audit covering:
+              port exposure, firewall chain validation (IPv4 and IPv6), VPN routing
+              assessment, SSH auth log review, Docker privilege review, Tailscale peer
+              verification, SUID binary check, world-writable file scan, cron job audit,
+              and system integrity checks.</p>
+              <p>Outputs a structured markdown report with a risk level (GREEN / AMBER /
+              RED), critical issues, warnings, and prioritised recommended actions.
+              Reports are stored in the Obsidian vault with a README index.</p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <section class="section fade-in">
+        <div class="tech-decisions">
+          <h2>Technical Decisions</h2>
+
+          <div class="tech-decision">
+            <span class="tech-decision-label">Why a Raspberry Pi</span>
+            <p>Low power (~£5/month electricity), always-on, quiet, and physically located
+            at home for LAN access to IoT devices. Sufficient for the workload.</p>
+          </div>
+
+          <div class="tech-decision">
+            <span class="tech-decision-label">Claude Code as sysadmin</span>
+            <p>Not replacing manual administration. Acts as a structured memory and
+            drift-detection layer. Every session reads the current state before making
+            changes. Prevents configuration drift across dozens of services.</p>
+          </div>
+
+          <div class="tech-decision">
+            <span class="tech-decision-label">Obsidian vault over a database</span>
+            <p>Plain markdown files are human-readable, git-trackable, and editable from
+            any device. No database dependency to fail.</p>
+          </div>
+
+        </div>
+      </section>
+
+      <div class="infra-note fade-in">
+        <h4>Infrastructure</h4>
+        <ul>
+          <li>Raspberry Pi 5</li>
+          <li>Docker Compose</li>
+          <li>Tailscale VPN</li>
+          <li>Cloudflare Tunnels</li>
+          <li>Claude Code (Opus for audits)</li>
+          <li>~£5/month electricity</li>
+        </ul>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>&copy; 2026 Louis Kempson-Seaton</p>
+      <ul class="footer-links">
+        <li><a href="https://www.linkedin.com/in/lkempsonseaton" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://github.com/zampano95" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="mailto:louis@kempsonseaton.com">Email</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
