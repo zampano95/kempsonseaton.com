@@ -1051,21 +1051,21 @@ a.project-card {
 /* --- Career Arc (About page) --- */
 .career-arc {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 0;
   margin: 2rem 0 3rem;
   position: relative;
+  padding-top: 0;
 }
 
 .career-arc::before {
   content: '';
   position: absolute;
-  top: 50%;
+  top: 6px;
   left: 0;
   right: 0;
   height: 2px;
-  background: linear-gradient(to right, var(--border-subtle), var(--accent), var(--border-subtle));
-  transform: translateY(-50%);
+  background: linear-gradient(to right, var(--border-subtle), var(--node-teal), var(--border-subtle));
   z-index: 0;
 }
 
