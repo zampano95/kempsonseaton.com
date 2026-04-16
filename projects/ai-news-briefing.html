@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI News Briefing Pipeline — Louis Kempson-Seaton</title>
+  <title>AI News Briefing Pipeline · Louis Kempson-Seaton</title>
   <meta name="description" content="Automated daily AI news digest: collects from Reddit, lab blogs, and research papers, scores with Claude, delivers by email every morning.">
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../css/style.css?v=20260416b">
@@ -61,7 +61,7 @@
 
               <div class="pipeline-branch">
                 <span class="pipeline-branch-label">Reddit</span>
-                <p>16 AI-focused subreddits via public JSON endpoints — r/LocalLLaMA,
+                <p>16 AI-focused subreddits via public JSON endpoints: r/LocalLLaMA,
                 r/MachineLearning, r/ClaudeCode, r/OpenAI, r/singularity, and others.
                 Filtered to top posts from the last 24 hours with at least 5 upvotes.
                 Uses <code>.json</code> endpoints rather than the official API; Reddit moved
@@ -71,8 +71,8 @@
               <div class="pipeline-branch">
                 <span class="pipeline-branch-label">Lab Blogs</span>
                 <p>RSS feeds from Anthropic, OpenAI, Google AI, Meta AI, Mistral, and
-                Hugging Face. Anthropic has no native RSS — uses a community-maintained
-                GitHub-hosted feed updated hourly via GitHub Actions.</p>
+                Hugging Face. Anthropic has no native RSS, so this uses a community
+                maintained GitHub-hosted feed updated hourly via GitHub Actions.</p>
               </div>
 
               <div class="pipeline-branch">
@@ -97,24 +97,24 @@
           <div class="pipeline-stage">
             <span class="pipeline-stage-num">03</span>
             <div class="pipeline-stage-body">
-              <div class="pipeline-stage-title">AI Scoring — Claude Haiku</div>
+              <div class="pipeline-stage-title">AI Scoring (Claude Haiku)</div>
               <p>Items are pre-sorted by engagement and capped at 100 with a quota
               system: 60 Reddit, 15 blogs, 25 papers.</p>
               <p>Claude Haiku deduplicates items covering the same story, scores
-              each 1–5 against a personal interest profile (practical AI tooling,
+              each 1 to 5 against a personal interest profile (practical AI tooling,
               industry moves, novel research, career-relevant skills, AI safety),
               and drops anything below 3.</p>
-              <p>Typical run: 230+ items reduced to 20–30.</p>
+              <p>Typical run: 230+ items reduced to 20 or 30.</p>
             </div>
           </div>
 
           <div class="pipeline-stage">
             <span class="pipeline-stage-num">04</span>
             <div class="pipeline-stage-body">
-              <div class="pipeline-stage-title">Summary Generation — Claude Sonnet</div>
+              <div class="pipeline-stage-title">Summary Generation (Claude Sonnet)</div>
               <p>Filtered items are sent to Claude Sonnet, which produces a formatted
-              HTML email grouped by category with a 1–2 sentence explanation per item.
-              Designed to be scannable in under 3 minutes.</p>
+              HTML email grouped by category with a one or two sentence explanation
+              per item. Designed to be scannable in under 3 minutes.</p>
             </div>
           </div>
 
@@ -136,7 +136,7 @@
           <div class="tech-decision">
             <span class="tech-decision-label">Two-model architecture</span>
             <p>Haiku for classification (fast, cheap), Sonnet for writing (higher quality).
-            Running cost is approximately £0.05–0.15/day.</p>
+            Running cost is roughly £0.05 to £0.15 a day.</p>
           </div>
 
           <div class="tech-decision">
@@ -149,7 +149,7 @@
           <div class="tech-decision">
             <span class="tech-decision-label">Fault isolation per source branch</span>
             <p>Each source branch uses try/catch independently. A single failing subreddit
-            or RSS feed does not abort the workflow — the remaining sources complete
+            or RSS feed does not abort the workflow. The remaining sources complete
             and the briefing still sends.</p>
           </div>
 
@@ -161,10 +161,10 @@
         <ul>
           <li>Raspberry Pi 5 · Docker</li>
           <li>n8n (self-hosted, open-source)</li>
-          <li>Claude Haiku — classification</li>
-          <li>Claude Sonnet — generation</li>
-          <li>~£10–15/month all-in</li>
-          <li>Zero manual intervention — cron daily</li>
+          <li>Claude Haiku (classification)</li>
+          <li>Claude Sonnet (generation)</li>
+          <li>~£10 to £15 per month, all in</li>
+          <li>Cron daily, no manual intervention</li>
         </ul>
       </div>
 

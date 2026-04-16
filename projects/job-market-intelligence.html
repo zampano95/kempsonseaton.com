@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Job Market Intelligence Pipeline — Louis Kempson-Seaton</title>
+  <title>Job Market Intelligence Pipeline · Louis Kempson-Seaton</title>
   <meta name="description" content="Automated daily pipeline that searches UK job boards for AI automation roles, scores each listing against a professional profile, and delivers a colour-coded digest with application advice.">
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../css/style.css?v=20260416b">
@@ -62,22 +62,22 @@
               AI operations, AI agent developer, and others.</p>
               <p>Each query returns up to 20 results filtered to the last 3 days.
               Results are deduplicated by job ID across queries.
-              Typical daily yield: 100–150 unique listings.</p>
+              Typical daily yield: 100 to 150 unique listings.</p>
             </div>
           </div>
 
           <div class="pipeline-stage">
             <span class="pipeline-stage-num">02</span>
             <div class="pipeline-stage-body">
-              <div class="pipeline-stage-title">AI Profile Matching — Claude Sonnet</div>
+              <div class="pipeline-stage-title">AI Profile Matching (Claude Sonnet)</div>
               <p>All listings are sent with a detailed professional profile. Claude performs
               five analyses per job:</p>
               <ul>
-                <li>Relevance score (1–5): alignment with AI automation career direction</li>
-                <li>Fit score (1–5): honest assessment against current experience</li>
+                <li>Relevance score (1 to 5): alignment with AI automation career direction</li>
+                <li>Fit score (1 to 5): honest assessment against current experience</li>
                 <li>Categorisation: strong_match / worth_applying / stretch / out_of_reach</li>
-                <li>Work mode extraction: remote / hybrid / office / unknown — non-London,
-                non-remote roles filtered out</li>
+                <li>Work mode extraction: remote / hybrid / office / unknown. Non-London,
+                non-remote roles are filtered out.</li>
                 <li>Application advice: which specific experience to emphasise</li>
               </ul>
             </div>
@@ -86,7 +86,7 @@
           <div class="pipeline-stage">
             <span class="pipeline-stage-num">03</span>
             <div class="pipeline-stage-body">
-              <div class="pipeline-stage-title">Skills Intelligence — Claude Haiku</div>
+              <div class="pipeline-stage-title">Skills Intelligence (Claude Haiku)</div>
               <p>Extracts skill frequency across all matched listings and cross-references
               against the candidate profile. Each skill gets a traffic-light status:
               green (have it), amber (partial), red (gap).</p>
@@ -132,16 +132,16 @@
 
           <div class="tech-decision">
             <span class="tech-decision-label">Wide net + AI filter over keyword matching</span>
-            <p>10 broad search queries cast a wide net; Claude filters false positives.
-            This catches non-standard job titles that keyword filtering would miss —
+            <p>10 broad search queries cast a wide net; Claude filters the false positives.
+            This catches non-standard job titles that keyword filtering would miss.
             "Intelligent Process Automation Lead" won't appear in a search for
-            "n8n automation" but Claude recognises the relevance.</p>
+            "n8n automation", but Claude recognises the relevance.</p>
           </div>
 
           <div class="tech-decision">
             <span class="tech-decision-label">Honest fit scoring</span>
             <p>The prompt explicitly instructs Claude to be honest rather than
-            optimistic. Out-of-reach roles are still surfaced — categorised clearly —
+            optimistic. Out-of-reach roles are still surfaced and categorised clearly,
             so the digest builds an accurate picture of the market without encouraging
             wasted applications.</p>
           </div>
@@ -150,7 +150,7 @@
             <span class="tech-decision-label">Defensive JSON parsing</span>
             <p>Strips markdown backticks, locates array boundaries, handles truncated
             responses. Claude occasionally wraps JSON in markdown despite explicit
-            instructions not to — handling this in the workflow prevents silent
+            instructions not to. Handling this in the workflow prevents silent
             failures in production.</p>
           </div>
 
@@ -169,10 +169,10 @@
         <ul>
           <li>Raspberry Pi 5 · Docker</li>
           <li>n8n (self-hosted, open-source)</li>
-          <li>Claude Sonnet — profile matching</li>
-          <li>Claude Haiku — skills analysis</li>
-          <li>~£10–15/month all-in</li>
-          <li>Zero manual intervention — cron daily</li>
+          <li>Claude Sonnet (profile matching)</li>
+          <li>Claude Haiku (skills analysis)</li>
+          <li>~£10 to £15 per month, all in</li>
+          <li>Cron daily, no manual intervention</li>
         </ul>
       </div>
 

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Self-Hosted Infrastructure — Louis Kempson-Seaton</title>
+  <title>Self-Hosted Infrastructure · Louis Kempson-Seaton</title>
   <meta name="description" content="Raspberry Pi 5 running 10+ Docker services, secured behind Tailscale and Cloudflare Tunnels, with autonomous management via Claude Code and nightly AI security audits.">
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../css/style.css?v=20260416b">
@@ -81,7 +81,7 @@
                 <li>SSH restricted to Tailscale IP and localhost only. Key-only authentication, single allowed user.</li>
                 <li>Custom iptables rules: ts-input chain whitelists 5 authorised Tailscale peers, drops all other Tailscale traffic, blocks spoofed CGNAT addresses.</li>
                 <li>Wildcard SSL certificates for *.kempsonseaton.com via Let's Encrypt with automated renewal.</li>
-                <li>Tailscale mesh VPN for remote access. Tailscale Funnel disabled — nothing exposed via Tailscale serve.</li>
+                <li>Tailscale mesh VPN for remote access. Tailscale Funnel disabled, nothing exposed via Tailscale serve.</li>
               </ul>
             </div>
           </div>
