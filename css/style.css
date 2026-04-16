@@ -406,6 +406,30 @@ code, .mono {
   animation: wfNodePulse 0.65s var(--ease-out);
 }
 
+/* Ambient breathe. Each node's halo and tinted interior slowly inhale
+   and exhale, offset per-node so they never sync up. Subtle enough not
+   to compete with the workflow execution pulses; gives the diagram
+   low-level life when nothing's flowing. */
+@keyframes wfBreathe {
+  0%, 100% { filter: brightness(0.92) saturate(0.95); }
+  50%      { filter: brightness(1.10) saturate(1.08); }
+}
+
+.n8n-hero a {
+  animation: wfBreathe 5.5s ease-in-out infinite;
+  transform-origin: center;
+}
+.n8n-hero a:nth-of-type(1) { animation-delay: 0s; }
+.n8n-hero a:nth-of-type(2) { animation-delay: -1.0s; }
+.n8n-hero a:nth-of-type(3) { animation-delay: -2.3s; }
+.n8n-hero a:nth-of-type(4) { animation-delay: -3.4s; }
+.n8n-hero a:nth-of-type(5) { animation-delay: -1.7s; }
+.n8n-hero a:nth-of-type(6) { animation-delay: -4.4s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .n8n-hero a { animation: none; }
+}
+
 /* --- Cards --- */
 .card {
   background: var(--bg-card);

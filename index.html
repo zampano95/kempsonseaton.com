@@ -10,7 +10,7 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://kempsonseaton.com">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="css/style.css?v=20260416d">
+  <link rel="stylesheet" href="css/style.css?v=20260416e">
   <style>
     .n8n-hero { padding: 2rem 0 0; }
     .n8n-hero a:hover rect:first-of-type { filter: brightness(1.5) !important; }
@@ -46,14 +46,39 @@
           <svg viewBox="0 0 1060 410" width="1060" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;display:block;overflow:visible;">
             <defs>
               <linearGradient id="frost" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="white" stop-opacity="0.06"/>
+                <stop offset="0%" stop-color="white" stop-opacity="0.07"/>
                 <stop offset="100%" stop-color="white" stop-opacity="0.01"/>
               </linearGradient>
               <linearGradient id="shine" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="white" stop-opacity="0.11"/>
-                <stop offset="30%" stop-color="white" stop-opacity="0.03"/>
+                <stop offset="0%" stop-color="white" stop-opacity="0.20"/>
+                <stop offset="40%" stop-color="white" stop-opacity="0.05"/>
                 <stop offset="100%" stop-color="white" stop-opacity="0"/>
               </linearGradient>
+              <linearGradient id="depth" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="black" stop-opacity="0"/>
+                <stop offset="55%" stop-color="black" stop-opacity="0"/>
+                <stop offset="100%" stop-color="black" stop-opacity="0.45"/>
+              </linearGradient>
+              <radialGradient id="bg-teal" cx="0.5" cy="0.5" r="0.75">
+                <stop offset="0%" stop-color="#1f3431"/>
+                <stop offset="60%" stop-color="#161620"/>
+                <stop offset="100%" stop-color="#0d0d13"/>
+              </radialGradient>
+              <radialGradient id="bg-orange" cx="0.5" cy="0.5" r="0.75">
+                <stop offset="0%" stop-color="#33231e"/>
+                <stop offset="60%" stop-color="#191420"/>
+                <stop offset="100%" stop-color="#0d0d13"/>
+              </radialGradient>
+              <radialGradient id="bg-blue" cx="0.5" cy="0.5" r="0.75">
+                <stop offset="0%" stop-color="#1c2a34"/>
+                <stop offset="60%" stop-color="#141520"/>
+                <stop offset="100%" stop-color="#0d0d13"/>
+              </radialGradient>
+              <radialGradient id="bg-green" cx="0.5" cy="0.5" r="0.75">
+                <stop offset="0%" stop-color="#1f2a22"/>
+                <stop offset="60%" stop-color="#141520"/>
+                <stop offset="100%" stop-color="#0d0d13"/>
+              </radialGradient>
               <filter id="glowG" x="-60%" y="-60%" width="220%" height="220%"><feDropShadow dx="0" dy="0" stdDeviation="10" flood-color="#2dd4a8" flood-opacity="0.7"/></filter>
               <filter id="glowO" x="-60%" y="-60%" width="220%" height="220%"><feDropShadow dx="0" dy="0" stdDeviation="10" flood-color="#ff6d5a" flood-opacity="0.65"/></filter>
               <filter id="glowB" x="-60%" y="-60%" width="220%" height="220%"><feDropShadow dx="0" dy="0" stdDeviation="10" flood-color="#5bc4e0" flood-opacity="0.65"/></filter>
@@ -89,18 +114,20 @@
 
             <!-- TRIGGER NODE (teal) -->
             <a href="#" onclick="return false;" style="cursor:default;">
-              <rect id="node-trigger" x="100" y="170" width="80" height="80" rx="14" fill="#1e1e2a" stroke="rgba(45,212,168,0.9)" stroke-width="1.5" filter="url(#glowG)"/>
-              <rect x="100" y="170" width="80" height="80" rx="14" fill="url(#frost)"/>
-              <rect x="100" y="170" width="80" height="40" fill="url(#shine)" clip-path="url(#clipTrigger)"/>
+              <rect id="node-trigger" x="100" y="170" width="80" height="80" rx="14" fill="url(#bg-teal)" stroke="rgba(45,212,168,0.9)" stroke-width="1.5" filter="url(#glowG)"/>
+              <rect x="100" y="170" width="80" height="80" rx="14" fill="url(#depth)" pointer-events="none"/>
+              <rect x="100" y="170" width="80" height="80" rx="14" fill="url(#frost)" pointer-events="none"/>
+              <rect x="100" y="170" width="80" height="40" fill="url(#shine)" clip-path="url(#clipTrigger)" pointer-events="none"/>
               <path d="M 132,196 L 132,222 L 153,209 Z" fill="#2dd4a8" stroke="#2dd4a8" stroke-width="2" stroke-linejoin="round"/>
               <text x="140" y="272" text-anchor="middle" fill="#d4d4d8" font-family="'JetBrains Mono',monospace" font-size="13" font-weight="500">Visit Site</text>
             </a>
 
             <!-- ABOUT NODE (orange) -->
             <a href="about.html">
-              <rect id="node-about" x="380" y="50" width="80" height="80" rx="14" fill="#1e1e2a" stroke="rgba(255,109,90,0.9)" stroke-width="1.5" filter="url(#glowO)"/>
-              <rect x="380" y="50" width="80" height="80" rx="14" fill="url(#frost)"/>
-              <rect x="380" y="50" width="80" height="40" fill="url(#shine)" clip-path="url(#clipAbout)"/>
+              <rect id="node-about" x="380" y="50" width="80" height="80" rx="14" fill="url(#bg-orange)" stroke="rgba(255,109,90,0.9)" stroke-width="1.5" filter="url(#glowO)"/>
+              <rect x="380" y="50" width="80" height="80" rx="14" fill="url(#depth)" pointer-events="none"/>
+              <rect x="380" y="50" width="80" height="80" rx="14" fill="url(#frost)" pointer-events="none"/>
+              <rect x="380" y="50" width="80" height="40" fill="url(#shine)" clip-path="url(#clipAbout)" pointer-events="none"/>
               <circle cx="420" cy="80" r="8" fill="none" stroke="#ff6d5a" stroke-width="2.2"/>
               <path d="M 405,108 C 405,98 411,93 420,93 C 429,93 435,98 435,108" fill="none" stroke="#ff6d5a" stroke-width="2.2" stroke-linecap="round"/>
               <text x="420" y="155" text-anchor="middle" fill="#d4d4d8" font-family="'JetBrains Mono',monospace" font-size="13" font-weight="500">About Me</text>
@@ -108,9 +135,10 @@
 
             <!-- PROJECTS NODE (orange) -->
             <a href="projects.html">
-              <rect id="node-projects" x="380" y="170" width="80" height="80" rx="14" fill="#1e1e2a" stroke="rgba(255,109,90,0.9)" stroke-width="1.5" filter="url(#glowO)"/>
-              <rect x="380" y="170" width="80" height="80" rx="14" fill="url(#frost)"/>
-              <rect x="380" y="170" width="80" height="40" fill="url(#shine)" clip-path="url(#clipProjects)"/>
+              <rect id="node-projects" x="380" y="170" width="80" height="80" rx="14" fill="url(#bg-orange)" stroke="rgba(255,109,90,0.9)" stroke-width="1.5" filter="url(#glowO)"/>
+              <rect x="380" y="170" width="80" height="80" rx="14" fill="url(#depth)" pointer-events="none"/>
+              <rect x="380" y="170" width="80" height="80" rx="14" fill="url(#frost)" pointer-events="none"/>
+              <rect x="380" y="170" width="80" height="40" fill="url(#shine)" clip-path="url(#clipProjects)" pointer-events="none"/>
               <rect x="404" y="198" width="22" height="6" rx="1.5" fill="none" stroke="#ff6d5a" stroke-width="2"/>
               <rect x="409" y="207" width="22" height="6" rx="1.5" fill="none" stroke="#ff6d5a" stroke-width="2"/>
               <rect x="414" y="216" width="22" height="6" rx="1.5" fill="none" stroke="#ff6d5a" stroke-width="2"/>
@@ -119,9 +147,10 @@
 
             <!-- CV NODE (orange) -->
             <a href="cv.html">
-              <rect id="node-cv" x="380" y="290" width="80" height="80" rx="14" fill="#1e1e2a" stroke="rgba(255,109,90,0.9)" stroke-width="1.5" filter="url(#glowO)"/>
-              <rect x="380" y="290" width="80" height="80" rx="14" fill="url(#frost)"/>
-              <rect x="380" y="290" width="80" height="40" fill="url(#shine)" clip-path="url(#clipCV)"/>
+              <rect id="node-cv" x="380" y="290" width="80" height="80" rx="14" fill="url(#bg-orange)" stroke="rgba(255,109,90,0.9)" stroke-width="1.5" filter="url(#glowO)"/>
+              <rect x="380" y="290" width="80" height="80" rx="14" fill="url(#depth)" pointer-events="none"/>
+              <rect x="380" y="290" width="80" height="80" rx="14" fill="url(#frost)" pointer-events="none"/>
+              <rect x="380" y="290" width="80" height="40" fill="url(#shine)" clip-path="url(#clipCV)" pointer-events="none"/>
               <path d="M 408,316 L 425,316 L 432,323 L 432,344 L 408,344 Z" fill="none" stroke="#ff6d5a" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
               <path d="M 425,316 L 425,323 L 432,323" fill="none" stroke="#ff6d5a" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
               <line x1="412" y1="329" x2="428" y2="329" stroke="#ff6d5a" stroke-width="1.5" stroke-linecap="round"/>
@@ -132,9 +161,10 @@
 
             <!-- MERGE NODE (blue) — links to LinkedIn -->
             <a href="https://www.linkedin.com/in/lkempsonseaton" target="_blank" rel="noopener">
-              <rect id="node-merge" x="680" y="170" width="80" height="80" rx="14" fill="#1e1e2a" stroke="rgba(91,196,224,0.9)" stroke-width="1.5" filter="url(#glowB)"/>
-              <rect x="680" y="170" width="80" height="80" rx="14" fill="url(#frost)"/>
-              <rect x="680" y="170" width="80" height="40" fill="url(#shine)" clip-path="url(#clipMerge)"/>
+              <rect id="node-merge" x="680" y="170" width="80" height="80" rx="14" fill="url(#bg-blue)" stroke="rgba(91,196,224,0.9)" stroke-width="1.5" filter="url(#glowB)"/>
+              <rect x="680" y="170" width="80" height="80" rx="14" fill="url(#depth)" pointer-events="none"/>
+              <rect x="680" y="170" width="80" height="80" rx="14" fill="url(#frost)" pointer-events="none"/>
+              <rect x="680" y="170" width="80" height="40" fill="url(#shine)" clip-path="url(#clipMerge)" pointer-events="none"/>
               <rect x="704" y="194" width="32" height="32" rx="5" fill="none" stroke="#5bc4e0" stroke-width="2"/>
               <text x="720" y="218" text-anchor="middle" fill="#5bc4e0" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif" font-size="18" font-weight="700">in</text>
               <text x="720" y="272" text-anchor="middle" fill="#d4d4d8" font-family="'JetBrains Mono',monospace" font-size="13" font-weight="500">LinkedIn</text>
@@ -142,9 +172,10 @@
 
             <!-- OUTPUT NODE (green) -->
             <a href="mailto:louis@kempsonseaton.com">
-              <rect id="node-output" x="920" y="170" width="80" height="80" rx="14" fill="#1e1e2a" stroke="rgba(74,222,128,0.9)" stroke-width="1.5" filter="url(#glowGr)"/>
-              <rect x="920" y="170" width="80" height="80" rx="14" fill="url(#frost)"/>
-              <rect x="920" y="170" width="80" height="40" fill="url(#shine)" clip-path="url(#clipOutput)"/>
+              <rect id="node-output" x="920" y="170" width="80" height="80" rx="14" fill="url(#bg-green)" stroke="rgba(74,222,128,0.9)" stroke-width="1.5" filter="url(#glowGr)"/>
+              <rect x="920" y="170" width="80" height="80" rx="14" fill="url(#depth)" pointer-events="none"/>
+              <rect x="920" y="170" width="80" height="80" rx="14" fill="url(#frost)" pointer-events="none"/>
+              <rect x="920" y="170" width="80" height="40" fill="url(#shine)" clip-path="url(#clipOutput)" pointer-events="none"/>
               <rect x="943" y="195" width="34" height="24" rx="2.5" fill="none" stroke="#4ade80" stroke-width="2.2"/>
               <polyline points="943,195 960,210 977,195" fill="none" stroke="#4ade80" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
               <line x1="943" y1="219" x2="956" y2="208" stroke="#4ade80" stroke-width="1.8" stroke-linecap="round" opacity="0.55"/>
